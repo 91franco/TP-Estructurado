@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">MiAplicacion</string>
+    <string name="bienvenida">Bienvenidos a mi APP</string>
+    <string name="usuarioEmail">Ingresa tu usuario o email</string>
+    <string name="btnRegistrarse">Registrarse</string>
+    <string name="btnIngresar">Ingresar</string>
+    <string name="in_subtitulo">La aplicación que te ayudará a recordar.</string>
+    <string name="in_usuarioClave">Ingresa tu clave</string>
+    <string name="in_recodarme">Recordarme</string>
+    <string name="re_subtitulo">Formulario de registro</string>
+    <string name="re_nombre">Ingrese Nombre</string>
+    <string name="re_apellido">Ingrese Apellido</string>
+    <string name="re_email">Ingrese Email</string>
+    <string name="re_clave">Ingresa una Clave</string>
+    <string name="re_rClave">Reingresá la Clave</string>
+    <string name="cat_titulo">Nueva Categoria!</string>
+    <string name="cat_nombre">Nombre de Categoria</string>
+    <string name="cat_descripcion">Texto para ingresar una breve despcrion multilinea de categoria</string>
+    <string name="cat_favorita">Favorita</string>
+    <string name="cat_crear">Crear</string>
+</resources>

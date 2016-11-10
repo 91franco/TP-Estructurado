@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".Activity.RegistrarseActivity">
+
+    <ImageView
+        android:layout_width="90dp"
+        android:layout_height="90dp"
+        android:background="@mipmap/ic_launcher"
+        android:layout_gravity="center_horizontal|top"
+        android:adjustViewBounds="false"
+        android:cropToPadding="false"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/bienvenida"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:layout_gravity="center"
+        android:id="@+id/txtBienvenidaRegistro"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/re_subtitulo"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:layout_gravity="center"
+        android:id="@+id/txtSubtituloaRegistro"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="1dp"
+            android:background="@android:color/darker_gray"/>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:hint="@string/re_nombre"
+            android:ems="10"
+            android:id="@+id/editRNombre"
+            />
+
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:hint="@string/re_apellido"
+            android:ems="10"
+            android:id="@+id/editRApellido"
+            />
+
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:hint="@string/usuarioEmail"
+            android:ems="10"
+            android:id="@+id/editRUsuarioEmail"
+            />
+
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:hint="@string/re_email"
+            android:ems="10"
+            android:id="@+id/editREmail"
+            />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPassword"
+            android:hint="@string/re_clave"
+            android:ems="10"
+            android:id="@+id/editRClave"
+            android:textIsSelectable="false" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPassword"
+            android:hint="@string/re_rClave"
+            android:ems="10"
+            android:id="@+id/editRReinClave" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <Button
+                style="?android:attr/buttonStyleSmall"
+                android:layout_width="163dp"
+                android:layout_height="36dp"
+                android:text="@string/btnRegistrarse"
+                android:id="@+id/btnReRegistrarse"
+                android:layout_gravity="center_horizontal|top"
+                android:textAllCaps="false"
+                android:background="@color/colorBotones" />
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+</LinearLayout>

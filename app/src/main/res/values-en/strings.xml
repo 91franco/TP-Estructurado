@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">MyApp</string>
+    <string name="bienvenida">Welcome to my APP</string>
+    <string name="usuarioEmail">Enter your username or email</string>
+    <string name="btnRegistrarse">Register</string>
+    <string name="btnIngresar">Login</string>
+    <string name="in_subtitulo">The application that will help you remember.</string>
+    <string name="in_usuarioClave">Enter your Password</string>
+    <string name="in_recodarme">Remember</string>
+    <string name="re_subtitulo">Registration Form</string>
+    <string name="re_nombre">Enter Name</string>
+    <string name="re_apellido">Enter Last Name</string>
+    <string name="re_email">Enter Email</string>
+    <string name="re_clave">Enter Password</string>
+    <string name="re_rClave">Re-enter Password</string>
+    <string name="cat_titulo">New Category!</string>
+    <string name="cat_nombre">Name Category</string>
+    <string name="cat_descripcion">Text to enter a brief multiline despcrion of category</string>
+    <string name="cat_favorita">Favorites</string>
+    <string name="cat_crear">Create</string>
+</resources>
