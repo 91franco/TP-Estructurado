@@ -1,5 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activity.CategoriaActivity">
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -11,24 +18,17 @@
         android:layout_height="wrap_content"
         android:id="@+id/rvCategoria"
         android:scrollbars="vertical">
-
     </android.support.v7.widget.RecyclerView>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:id="@+id/btnAgregar"
-            android:background="@android:drawable/ic_input_add"
-            android:layout_gravity="center_horizontal"
-            android:backgroundTint="#c11010"/>
-
-
     </LinearLayout>
+    <android.support.design.widget.FloatingActionButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/btnAgregar"
+        android:src="@android:drawable/ic_input_add"
+        android:layout_gravity="right|bottom"
+        android:layout_marginBottom="@dimen/activity_horizontal_margin"
+        android:layout_margin="@dimen/activity_vertical_margin"
+        />
 
-
-
-</LinearLayout>
+</android.support.design.widget.CoordinatorLayout>

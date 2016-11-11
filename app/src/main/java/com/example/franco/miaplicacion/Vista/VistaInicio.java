@@ -1,9 +1,13 @@
 package com.example.franco.miaplicacion.Vista;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.Uri;
+import android.util.Log;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 
 import com.example.franco.miaplicacion.Activity.CategoriaActivity;
@@ -20,6 +24,7 @@ public class VistaInicio {
     private Activity activity;
     private EditText email;
     private EditText clave;
+    private CheckBox checkBox;
     private String vacio = "CamposVacios";
 
     public VistaInicio(Activity ac, ControladorInicio controlador){
@@ -30,6 +35,8 @@ public class VistaInicio {
             this.btnIngresar.setOnClickListener(controlador);
             this.btnRegistrarse.setOnClickListener(controlador);
 
+            this.checkBox = (CheckBox) ac.findViewById(R.id.chkRecordarme);
+            this.checkBox.setOnClickListener(controlador);
             this.email=(EditText) ac.findViewById(R.id.ingresoEmail);
             this.clave=(EditText) ac.findViewById(R.id.ingresoClave);
 
@@ -51,6 +58,19 @@ public class VistaInicio {
             return false;
         }else
             return true;
+    }
+
+    public boolean validadCheck(){
+        if(checkBox.isChecked()){
+            SharedPreferences prefs = activity.getSharedPreferences("miConfig", Context.MODE_PRIVATE);
+            SharedPreferences.Editor editor = prefs.edit();
+            editor.putString("usuario", email.getText().toString());
+            editor.putString("clave",clave.getText().toString());
+            editor.commit();
+
+            return true;
+        }
+        return false;
     }
 
     public Uri.Builder cargarParametros(){

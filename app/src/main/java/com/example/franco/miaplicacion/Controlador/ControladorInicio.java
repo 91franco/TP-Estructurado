@@ -1,5 +1,7 @@
 package com.example.franco.miaplicacion.Controlador;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Message;
 import android.util.Log;
 import android.view.View;
@@ -37,12 +39,13 @@ public class ControladorInicio implements View.OnClickListener,Handler.Callback 
         if (v.getId() == R.id.btnIngresar) {
 
             if(vista.validaVacio()) {
+                vista.validadCheck();
                 Handler.Callback callback = this;
                 Handler handler = new Handler(callback);
                 MiHilo hilo = new MiHilo(handler,LOGIN,vista.cargarParametros());
                 hilo.start();
             }else{
-                Log.d("Pendiente:","Se lanzara un dialogo indicando que debe ingresar email/clave");
+                Log.d("Pendiente:", "Se lanzara un dialogo indicando que debe ingresar email/clave");
             }
         }
 
@@ -58,5 +61,12 @@ public class ControladorInicio implements View.OnClickListener,Handler.Callback 
             vista.cargarCategorias();
         }
         return false;
+    }
+
+    public void login(){
+        Handler.Callback callback = this;
+        Handler handler = new Handler(callback);
+        MiHilo hilo = new MiHilo(handler,LOGIN,vista.cargarParametros());
+        hilo.start();
     }
 }

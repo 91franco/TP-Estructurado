@@ -2,6 +2,7 @@ package com.example.franco.miaplicacion.Vista;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.support.design.widget.FloatingActionButton;
 import android.widget.Button;
 
 import com.example.franco.miaplicacion.Controlador.ControladorCategoria;
@@ -13,14 +14,14 @@ import com.example.franco.miaplicacion.R;
  */
 public class VistaCategoria {
     private Activity activity;
-    private Button btnAgregar;
+    private FloatingActionButton btnAgregar;
 
     public VistaCategoria(Activity ac, ControladorCategoria controlador) {
         activity = ac;
 
 
         if (activity.getClass().getName().equals("com.example.franco.miaplicacion.Activity.CategoriaActivity")) {
-            this.btnAgregar = (Button) activity.findViewById(R.id.btnAgregar);
+            this.btnAgregar = (FloatingActionButton) activity.findViewById(R.id.btnAgregar);
             this.btnAgregar.setOnClickListener(controlador);
 
         }
