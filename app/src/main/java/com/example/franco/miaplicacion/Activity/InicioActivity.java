@@ -19,9 +19,11 @@ import java.util.List;
 
 public class InicioActivity extends AppCompatActivity {
     public static String apiKey;
-    private String usuario;
-    private String clave;
-    private VistaInicio vista;
+    public static String usuario;
+    public static String clave;
+    public static String mensaje = "sin mensaje";
+    public static VistaInicio vista;
+    private MiDialogo dialogo;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,22 +38,25 @@ public class InicioActivity extends AppCompatActivity {
 
         controlador.setVista(vista);
 
-        if( usuario != "sin usuario" && clave !="sin clave"){
-            vista.cargarParametros();
+        if( !usuario.equals("sin usuario")  && !clave.equals("sin clave")){
             controlador.login();
         }
+
+
     }
 
-    static MiDialogo ingreseUsuario(){
-
-         MiDialogo dialogo = new MiDialogo();
-        dialogo.setTitulo("probando");
-        dialogo.setMensaje("probando");
-        return dialogo;
+    public void datosIncompletos(){
+        dialogo  = new MiDialogo();
+        dialogo.setTitulo("Alerta");
+        dialogo.setMensaje("Debe ingresar Email/Clave");
+        dialogo.show(getSupportFragmentManager(),"dialogo");
     }
 
-    public void  ingreseUsuario (MiDialogo dialogo){
-        dialogo.show(getSupportFragmentManager(), "dialogo");
+    public void datosIncorrectos(){
+        dialogo  = new MiDialogo();
+        dialogo.setTitulo("Alerta");
+        dialogo.setMensaje(mensaje);
+        dialogo.show(getSupportFragmentManager(),"dialogo");
     }
 
 

@@ -8,8 +8,10 @@ import android.view.View;
 import android.os.Handler;
 
 
+import com.example.franco.miaplicacion.Activity.InicioActivity;
 import com.example.franco.miaplicacion.Modelo.Categoria;
 import com.example.franco.miaplicacion.Activity.CategoriaActivity;
+import com.example.franco.miaplicacion.Modelo.MiDialogo;
 import com.example.franco.miaplicacion.Modelo.MiHilo;
 import com.example.franco.miaplicacion.R;
 import com.example.franco.miaplicacion.Vista.VistaInicio;
@@ -40,15 +42,14 @@ public class ControladorInicio implements View.OnClickListener,Handler.Callback 
 
             if(vista.validaVacio()) {
                 vista.validadCheck();
-                Handler.Callback callback = this;
-                Handler handler = new Handler(callback);
-                MiHilo hilo = new MiHilo(handler,LOGIN,vista.cargarParametros());
-                hilo.start();
+                this.login();
+                if(!InicioActivity.mensaje.equals("sin mensaje")){
+                    vista.datosIncorrectos();
+                }
             }else{
                 Log.d("Pendiente:", "Se lanzara un dialogo indicando que debe ingresar email/clave");
             }
         }
-
         if (v.getId()==R.id.btnRegistrarse){
             vista.iniciarRegistro();
         }

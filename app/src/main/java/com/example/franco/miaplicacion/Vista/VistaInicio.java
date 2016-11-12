@@ -11,6 +11,7 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 
 import com.example.franco.miaplicacion.Activity.CategoriaActivity;
+import com.example.franco.miaplicacion.Activity.InicioActivity;
 import com.example.franco.miaplicacion.Controlador.ControladorInicio;
 import com.example.franco.miaplicacion.R;
 import com.example.franco.miaplicacion.Activity.RegistrarseActivity;
@@ -55,6 +56,8 @@ public class VistaInicio {
 
     public boolean validaVacio(){
         if (email.getText().toString().equals("") || clave.getText().toString().equals("")){
+            InicioActivity activityInicio = (InicioActivity) activity;
+            activityInicio.datosIncompletos();
             return false;
         }else
             return true;
@@ -73,10 +76,29 @@ public class VistaInicio {
         return false;
     }
 
+    public void borrarShared(){
+        SharedPreferences prefs = activity.getSharedPreferences("miConfig", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = prefs.edit();
+        editor.putString("usuario","sin usuario");
+        editor.putString("clave","sin clave");
+        editor.commit();
+    }
+
     public Uri.Builder cargarParametros(){
         Uri.Builder params = new Uri.Builder();
-        params.appendQueryParameter("email",email.getText().toString());
-        params.appendQueryParameter("password",clave.getText().toString());
+        if( InicioActivity.usuario != "sin usuario" && InicioActivity.clave !="sin clave") {
+            params.appendQueryParameter("email", InicioActivity.usuario);
+            params.appendQueryParameter("password",InicioActivity.clave);
+        }else{
+            params.appendQueryParameter("email", email.getText().toString());
+            params.appendQueryParameter("password", clave.getText().toString());
+        }
         return  params;
     }
+
+    public void datosIncorrectos(){
+        InicioActivity activityInicio = (InicioActivity) activity;
+        activityInicio.datosIncorrectos();
+    }
+
 }

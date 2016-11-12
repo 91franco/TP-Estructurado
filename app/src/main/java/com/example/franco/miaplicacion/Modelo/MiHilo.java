@@ -1,5 +1,6 @@
 package com.example.franco.miaplicacion.Modelo;
 
+import android.app.Activity;
 import android.net.Uri;
 import android.os.Handler;
 import android.os.Message;
@@ -57,6 +58,7 @@ public class MiHilo extends Thread {
                     miHandler.sendMessage(msg);
                 }else {
                     String mensaje = jason.getString("message");
+                    InicioActivity.mensaje=mensaje.toString();
                     Log.d("respuesta:", mensaje);
                 }
             }
