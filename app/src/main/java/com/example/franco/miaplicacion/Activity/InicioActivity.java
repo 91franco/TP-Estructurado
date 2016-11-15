@@ -21,7 +21,6 @@ public class InicioActivity extends AppCompatActivity {
     public static String apiKey;
     public static String usuario;
     public static String clave;
-    public static String mensaje = "sin mensaje";
     public static VistaInicio vista;
     private MiDialogo dialogo;
     @Override
@@ -52,7 +51,7 @@ public class InicioActivity extends AppCompatActivity {
         dialogo.show(getSupportFragmentManager(),"dialogo");
     }
 
-    public void datosIncorrectos(){
+    public void datosIncorrectos(String mensaje){
         dialogo  = new MiDialogo();
         dialogo.setTitulo("Alerta");
         dialogo.setMensaje(mensaje);

@@ -6,6 +6,7 @@ import android.net.Uri;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.example.franco.miaplicacion.Activity.RegistrarseActivity;
 import com.example.franco.miaplicacion.Controlador.ControladorRegistrarse;
 import com.example.franco.miaplicacion.Activity.InicioActivity;
 import com.example.franco.miaplicacion.R;
@@ -48,6 +49,8 @@ public class VistaRegistrarse {
         if (editNombre.getText().toString().equals("") || editApellido.getText().toString().equals("") ||
                 editUsuario.getText().toString().equals("") || editContraseña.getText().toString().equals("") ||
                 editReContraseña.getText().toString().equals("") || editEmail.getText().toString().equals("")){
+            RegistrarseActivity registrarseActivity = (RegistrarseActivity) activity;
+            registrarseActivity.datosIncompletos();
             return false;
         }else
             return true;
@@ -57,6 +60,8 @@ public class VistaRegistrarse {
         if(editContraseña.getText().toString().equals(editReContraseña.getText().toString())){
             return true;
         }else {
+            RegistrarseActivity registrarseActivity = (RegistrarseActivity) activity;
+            registrarseActivity.datosContraseñas();
             return false;
         }
     }
@@ -70,5 +75,6 @@ public class VistaRegistrarse {
         params.appendQueryParameter("password",editApellido.getText().toString());
         return  params;
     }
+
 
 }

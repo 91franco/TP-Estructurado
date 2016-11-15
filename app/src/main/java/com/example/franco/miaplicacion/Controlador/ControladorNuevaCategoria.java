@@ -39,7 +39,7 @@ public class ControladorNuevaCategoria implements View.OnClickListener,Handler.C
                 MiHilo hilo = new MiHilo(handler,CREARCATEGORIA,vista.cargarParametros());
                 hilo.start();
             }else {
-                Log.d("Pendiente:","Se lanzara un dialogo indicando que debe ingresar datos de categoria");
+
             }
         }
     }

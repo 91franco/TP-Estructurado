@@ -31,13 +31,12 @@ public class ControladorRegistrarse implements View.OnClickListener,Handler.Call
 
 
         if (v.getId() == R.id.btnReRegistrarse) {
-            if(vista.validaVacio() && vista.validaContraseñas()) {
+            if(vista.validaVacio())
+                if(vista.validaContraseñas()) {
                 Handler.Callback callback = this;
                 Handler handler = new Handler(callback);
                 MiHilo hilo = new MiHilo(handler,REGISTRARSE,vista.cargarParametros());
                 hilo.start();
-            }else {
-                Log.d("Pendiente:","Se lanzara un dialogo indicando que debe ingresar datos de registro");
             }
         }
     }
@@ -45,11 +44,9 @@ public class ControladorRegistrarse implements View.OnClickListener,Handler.Call
     @Override
     public boolean handleMessage(Message msg) {
         if(msg.arg1==REGISTRARSE_OK) {
-            Log.d("Futurodialogo:",msg.obj.toString());
             vista.iniciarLogin();
         }
         if(msg.arg1==REGISTRARSE_NOK) {
-            Log.d("Futurodialogo:",msg.obj.toString());
             vista.iniciarLogin();
         }
         return false;

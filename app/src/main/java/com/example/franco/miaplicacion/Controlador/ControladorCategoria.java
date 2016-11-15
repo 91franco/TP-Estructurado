@@ -24,7 +24,6 @@ public class ControladorCategoria implements View.OnClickListener {
     public void onClick(View v){
 
         if(v.getId()== R.id.btnAgregar){
-            Log.d("Se hizo clic","clic");
             vista.crearCategoria();
         }
 

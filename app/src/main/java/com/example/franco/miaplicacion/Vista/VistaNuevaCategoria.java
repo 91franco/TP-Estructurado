@@ -8,6 +8,7 @@ import android.app.Activity;
 import android.widget.EditText;
 
 import com.example.franco.miaplicacion.Activity.CategoriaActivity;
+import com.example.franco.miaplicacion.Activity.NuevaCategoriaActivity;
 import com.example.franco.miaplicacion.Controlador.ControladorNuevaCategoria;
 import com.example.franco.miaplicacion.R;
 
@@ -39,6 +40,8 @@ public class VistaNuevaCategoria {
 
     public boolean validaVacio(){
         if (editNombre.getText().toString().equals("") || editDescripcion.getText().toString().equals("")){
+            NuevaCategoriaActivity nuevaCategoriaActivity = (NuevaCategoriaActivity) activity;
+            nuevaCategoriaActivity.datosIncompletos();
             return false;
         }else
             return true;

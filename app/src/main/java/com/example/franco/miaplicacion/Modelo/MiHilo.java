@@ -58,8 +58,7 @@ public class MiHilo extends Thread {
                     miHandler.sendMessage(msg);
                 }else {
                     String mensaje = jason.getString("message");
-                    InicioActivity.mensaje=mensaje.toString();
-                    Log.d("respuesta:", mensaje);
+                    InicioActivity.vista.datosIncorrectos(mensaje);
                 }
             }
 
@@ -95,7 +94,7 @@ public class MiHilo extends Thread {
                     msg.obj = categorias;
                     miHandler.sendMessage(msg);
                 }else {
-                    Log.d("Respuesta:",info);
+
                 }
 
             }

@@ -10,7 +10,6 @@ import android.util.Log;
 public class ControladorDialogo implements OnClickListener {
     @Override
     public void onClick(DialogInterface dialog, int which) {
-        Log.d("click", "se hizo click");
 
     }
 }

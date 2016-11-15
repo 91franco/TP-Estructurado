@@ -8,10 +8,12 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.example.franco.miaplicacion.Controlador.ControladorNuevaCategoria;
+import com.example.franco.miaplicacion.Modelo.MiDialogo;
 import com.example.franco.miaplicacion.R;
 import com.example.franco.miaplicacion.Vista.VistaNuevaCategoria;
 
 public class NuevaCategoriaActivity extends AppCompatActivity {
+    private MiDialogo dialogo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,6 +57,13 @@ public class NuevaCategoriaActivity extends AppCompatActivity {
             default:
                 return super.onOptionsItemSelected(item);
         }
+    }
+
+    public void datosIncompletos(){
+        dialogo  = new MiDialogo();
+        dialogo.setTitulo("Alerta");
+        dialogo.setMensaje("Debe completar todos los campos");
+        dialogo.show(getSupportFragmentManager(),"dialogo");
     }
 
 }

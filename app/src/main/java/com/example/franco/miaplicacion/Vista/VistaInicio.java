@@ -77,16 +77,16 @@ public class VistaInicio {
     }
 
     public void borrarShared(){
-        SharedPreferences prefs = activity.getSharedPreferences("miConfig", Context.MODE_PRIVATE);
-        SharedPreferences.Editor editor = prefs.edit();
-        editor.putString("usuario","sin usuario");
-        editor.putString("clave","sin clave");
-        editor.commit();
+            SharedPreferences prefs = activity.getSharedPreferences("miConfig", Context.MODE_PRIVATE);
+            SharedPreferences.Editor editor = prefs.edit();
+            editor.putString("usuario", "sin usuario");
+            editor.putString("clave", "sin clave");
+            editor.commit();
     }
 
     public Uri.Builder cargarParametros(){
         Uri.Builder params = new Uri.Builder();
-        if( InicioActivity.usuario != "sin usuario" && InicioActivity.clave !="sin clave") {
+        if( !InicioActivity.usuario.equals("sin usuario") && !InicioActivity.clave.equals("sin clave")) {
             params.appendQueryParameter("email", InicioActivity.usuario);
             params.appendQueryParameter("password",InicioActivity.clave);
         }else{
@@ -96,9 +96,9 @@ public class VistaInicio {
         return  params;
     }
 
-    public void datosIncorrectos(){
+    public void datosIncorrectos(String mensaje){
         InicioActivity activityInicio = (InicioActivity) activity;
-        activityInicio.datosIncorrectos();
+        activityInicio.datosIncorrectos(mensaje);
     }
 
 }

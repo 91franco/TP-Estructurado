@@ -41,13 +41,8 @@ public class ControladorInicio implements View.OnClickListener,Handler.Callback 
         if (v.getId() == R.id.btnIngresar) {
 
             if(vista.validaVacio()) {
-                vista.validadCheck();
                 this.login();
-                if(!InicioActivity.mensaje.equals("sin mensaje")){
-                    vista.datosIncorrectos();
-                }
-            }else{
-                Log.d("Pendiente:", "Se lanzara un dialogo indicando que debe ingresar email/clave");
+                vista.validadCheck();
             }
         }
         if (v.getId()==R.id.btnRegistrarse){

@@ -17,7 +17,8 @@
         </activity>
         <activity android:name=".Activity.RegistrarseActivity" />
         <activity android:name=".Activity.CategoriaActivity" />
-        <activity android:name=".Activity.NuevaCategoriaActivity"></activity>
+        <activity android:name=".Activity.NuevaCategoriaActivity"/>
+        <activity android:name=".Activity.DetalleCatActivity"> </activity>
     </application>
     <uses-permission-sdk-23 android:name="android.permission.INTERNET"></uses-permission-sdk-23>
     <uses-permission-sdk-23 android:name="android.permission.CAMERA"></uses-permission-sdk-23>
