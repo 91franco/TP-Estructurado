@@ -4,7 +4,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".Activity.NuevaCategoriaActivity">
+    tools:context=".Activity.NuevaCategoriaActivity"
+    android:background="@drawable/fondoazul">
 
     <TextView
         android:layout_width="wrap_content"
@@ -47,8 +48,8 @@
             android:layout_height="80dp"
             android:id="@+id/btnCargarFoto"
             android:layout_gravity="center_horizontal"
-            android:src="@android:drawable/ic_menu_camera"
-            android:backgroundTint="#3d792d" />
+            android:background="@drawable/camara"
+            android:adjustViewBounds="false" />
 
         <Space
             android:layout_width="match_parent"

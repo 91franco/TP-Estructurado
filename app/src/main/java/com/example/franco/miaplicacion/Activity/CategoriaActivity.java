@@ -1,6 +1,7 @@
 package com.example.franco.miaplicacion.Activity;
 
 import android.content.Intent;
+import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -8,17 +9,25 @@ import android.support.v7.widget.RecyclerView;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.example.franco.miaplicacion.Controlador.ControladorInicio;
 import com.example.franco.miaplicacion.Modelo.Categoria;
 import com.example.franco.miaplicacion.Controlador.ControladorCategoria;
 import com.example.franco.miaplicacion.Modelo.MiAdapter;
+import com.example.franco.miaplicacion.Modelo.MiHilo;
+import com.example.franco.miaplicacion.Modelo.MiListener;
 import com.example.franco.miaplicacion.R;
 import com.example.franco.miaplicacion.Vista.VistaCategoria;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class CategoriaActivity extends AppCompatActivity {
+public class CategoriaActivity extends AppCompatActivity implements MiListener{
     public static List<Categoria> categorias = new ArrayList<Categoria>();
+
+    @Override
+    public void seHizoClick (int position){
+
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,9 +39,8 @@ public class CategoriaActivity extends AppCompatActivity {
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         list.setLayoutManager (layoutManager);
 
-        MiAdapter adapter = new MiAdapter(categorias);
+        MiAdapter adapter = new MiAdapter(categorias,this);
         list.setAdapter(adapter);
-
 
         ControladorCategoria controlador = new ControladorCategoria();
         VistaCategoria vista = new VistaCategoria(this,controlador);

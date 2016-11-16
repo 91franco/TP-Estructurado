@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">MiAplicacion</string>
+    <string name="app_name"></string>
+    <string name="apps_name">Categorias</string>
     <string name="bienvenida">Bienvenidos a mi APP</string>
     <string name="usuarioEmail">Ingresa tu usuario o email</string>
     <string name="btnRegistrarse">Registrarse</string>

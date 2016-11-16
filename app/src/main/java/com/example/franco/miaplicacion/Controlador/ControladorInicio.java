@@ -24,6 +24,7 @@ import java.util.List;
  */
 public class ControladorInicio implements View.OnClickListener,Handler.Callback {
     public static final int LOGIN = 1;
+    public static final int CARGARIMAGEN = 4;
     private VistaInicio vista;
 
 
@@ -62,7 +63,7 @@ public class ControladorInicio implements View.OnClickListener,Handler.Callback 
     public void login(){
         Handler.Callback callback = this;
         Handler handler = new Handler(callback);
-        MiHilo hilo = new MiHilo(handler,LOGIN,vista.cargarParametros());
+        MiHilo hilo = new MiHilo(handler,LOGIN,vista.cargarParametros(),null);
         hilo.start();
     }
 }

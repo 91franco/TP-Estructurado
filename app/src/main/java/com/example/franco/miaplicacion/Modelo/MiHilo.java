@@ -1,6 +1,8 @@
 package com.example.franco.miaplicacion.Modelo;
 
 import android.app.Activity;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Handler;
 import android.os.Message;
@@ -27,12 +29,14 @@ public class MiHilo extends Thread {
     String error;
     String respuesta;
     Uri.Builder params;
+    String urlImagen;
 
 
-    public MiHilo(Handler handler, int i,Uri.Builder params ){
+    public MiHilo(Handler handler, int i,Uri.Builder params,String urlImagen ){
         this.miHandler=handler;
         this.accion=i;
         this.params =params;
+        this.urlImagen = urlImagen;
 
     }
 
@@ -97,6 +101,15 @@ public class MiHilo extends Thread {
 
                 }
 
+            }
+
+            if (accion == ControladorInicio.CARGARIMAGEN){
+                byte[] informacion=miConexion.enviarInformacion("http://lkdml.myq-see.com/"+urlImagen,null,"GET",null);
+                Bitmap bitmap = BitmapFactory.decodeByteArray(informacion,0,informacion.length);
+                Message msg1= new Message();
+                msg1.arg1= ControladorInicio.CARGARIMAGEN;
+                msg1.obj=informacion;
+                miHandler.sendMessage(msg1);
             }
 
         } catch (IOException e) {

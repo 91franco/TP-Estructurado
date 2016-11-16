@@ -11,6 +11,7 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 
 import com.example.franco.miaplicacion.Activity.CategoriaActivity;
+import com.example.franco.miaplicacion.Activity.DetalleCatActivity;
 import com.example.franco.miaplicacion.Activity.InicioActivity;
 import com.example.franco.miaplicacion.Controlador.ControladorInicio;
 import com.example.franco.miaplicacion.R;
@@ -51,6 +52,12 @@ public class VistaInicio {
 
     public void cargarCategorias(){
         Intent i = new Intent(activity,CategoriaActivity.class);
+        activity.startActivity(i);
+    }
+
+    public void cargarDetalleCat(int posicion){
+        Intent i = new Intent(activity,DetalleCatActivity.class);
+        i.putExtra("Posicion",posicion);
         activity.startActivity(i);
     }
 

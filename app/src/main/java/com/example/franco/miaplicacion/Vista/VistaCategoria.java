@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.support.design.widget.FloatingActionButton;
 import android.widget.Button;
 
+import com.example.franco.miaplicacion.Activity.DetalleCatActivity;
 import com.example.franco.miaplicacion.Controlador.ControladorCategoria;
 import com.example.franco.miaplicacion.Activity.NuevaCategoriaActivity;
 import com.example.franco.miaplicacion.R;
@@ -31,4 +32,6 @@ public class VistaCategoria {
         Intent i = new Intent(activity,NuevaCategoriaActivity.class);
         activity.startActivity(i);
     }
+
+
 }

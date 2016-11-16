@@ -5,13 +5,13 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".Activity.RegistrarseActivity"
-    >
+    android:background="@drawable/fondoazul">
 
 
     <ImageView
         android:layout_width="90dp"
         android:layout_height="90dp"
-        android:background="@mipmap/ic_launcher"
+        android:background="@drawable/icono"
         android:layout_gravity="center_horizontal|top"
         android:adjustViewBounds="false"
         android:cropToPadding="false"/>

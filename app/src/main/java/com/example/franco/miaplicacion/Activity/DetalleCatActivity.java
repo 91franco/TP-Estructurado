@@ -1,5 +1,6 @@
 package com.example.franco.miaplicacion.Activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
@@ -16,8 +17,14 @@ public class DetalleCatActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detalle_cat);
 
+        Intent intent = getIntent();
+        Bundle extras = intent.getExtras();
+
+        int intActivity1 = extras.getInt("Posicion");
+
         ControladorDetalleCat controlador = new ControladorDetalleCat();
         VistaDetalleCat vista = new VistaDetalleCat(this, controlador);
         controlador.setVista(vista);
+        vista.cargarDetalle(intActivity1);
     }
 }

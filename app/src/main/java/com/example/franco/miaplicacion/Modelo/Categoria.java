@@ -1,5 +1,6 @@
 package com.example.franco.miaplicacion.Modelo;
 
+import android.graphics.Bitmap;
 import android.widget.ImageView;
 
 import org.json.JSONArray;
@@ -16,11 +17,13 @@ import java.util.List;
 public class Categoria {
     private String nombre;
     private String descripcion;
-    private ImageView imagen;
+    private String imagen;
+    private Bitmap bitmap;
 
-    public Categoria(String nombre,String descripcion){
+    public Categoria(String nombre,String descripcion,String imagen){
         this.nombre=nombre;
         this.descripcion=descripcion;
+        this.imagen=imagen;
     }
     public void setNombre(String nombre){
         this.nombre=nombre;
@@ -30,9 +33,11 @@ public class Categoria {
         this.descripcion=descripcion;
     }
 
-    public void setImagen(ImageView imagen){
+    public void setImagen(String imagen){
         this.imagen=imagen;
     }
+
+    public void setBitmap(Bitmap bitmap){this.bitmap=bitmap;}
 
     public String getNombre(){
         return this.nombre;
@@ -42,9 +47,11 @@ public class Categoria {
         return this.descripcion;
     }
 
-    public ImageView getImagen(){
+    public String getImagen(){
         return this.imagen;
     }
+
+    public Bitmap getBitmap(){return this.bitmap;}
 
 
     public static List<Categoria> obtenerListaPersonaByJason (String jasonCategoria) throws IOException,JSONException {
@@ -57,9 +64,9 @@ public class Categoria {
             int id = c.getInt("id");
             String nombre = c.getString("titulo");
             String descripcion = c.getString("desc");
-            String urlImg = c.getString("url_foto");
+            String imagen = c.getString("url_foto");
 
-            Categoria p = new Categoria(nombre,descripcion);
+            Categoria p = new Categoria(nombre,descripcion,imagen);
             lista.add(p);
         }
 
