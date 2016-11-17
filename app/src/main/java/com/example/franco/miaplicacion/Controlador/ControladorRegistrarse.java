@@ -35,7 +35,7 @@ public class ControladorRegistrarse implements View.OnClickListener,Handler.Call
                 if(vista.validaContraseñas()) {
                 Handler.Callback callback = this;
                 Handler handler = new Handler(callback);
-                MiHilo hilo = new MiHilo(handler,REGISTRARSE,vista.cargarParametros(),null);
+                MiHilo hilo = new MiHilo(handler,REGISTRARSE,vista.cargarParametros(),null,0);
                     Log.d("Datos:",vista.cargarParametros().toString());
                 hilo.start();
             }else{

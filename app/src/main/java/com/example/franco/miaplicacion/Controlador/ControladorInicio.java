@@ -63,7 +63,7 @@ public class ControladorInicio implements View.OnClickListener,Handler.Callback 
     public void login(){
         Handler.Callback callback = this;
         Handler handler = new Handler(callback);
-        MiHilo hilo = new MiHilo(handler,LOGIN,vista.cargarParametros(),null);
+        MiHilo hilo = new MiHilo(handler,LOGIN,vista.cargarParametros(),null,0);
         hilo.start();
     }
 }

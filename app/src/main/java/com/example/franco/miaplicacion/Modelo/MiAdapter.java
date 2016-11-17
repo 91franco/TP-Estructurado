@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.franco.miaplicacion.Activity.CategoriaActivity;
+import com.example.franco.miaplicacion.Activity.InicioActivity;
 import com.example.franco.miaplicacion.Controlador.ControladorInicio;
 import com.example.franco.miaplicacion.R;
 
@@ -39,9 +40,15 @@ public class MiAdapter extends RecyclerView.Adapter<MiViewHolder> implements Han
         holder.index=position;
         holder.txtNombre.setText(categorias.get(position).getNombre());
         holder.txtDescripcion.setText(categorias.get(position).getDescripcion());
-        //holder.imgVwImagen.setImageBitmap(categorias.get(position).getBitmap());
 
-        recuperarImagen(position);
+        if(categorias.get(position).getBitmap()!=null){
+            holder.imgVwImagen.setImageBitmap(categorias.get(position).getBitmap());
+        }else{
+            // hacer con pull de thread
+            recuperarImagen(position);
+        }
+
+
 
     }
 
@@ -55,7 +62,9 @@ public class MiAdapter extends RecyclerView.Adapter<MiViewHolder> implements Han
           if(msg.arg1==ControladorInicio.CARGARIMAGEN){
             byte [] img = (byte[]) msg.obj;
             Bitmap bitmap = BitmapFactory.decodeByteArray(img,0,img.length);
-            MiViewHolder.imgVwImagen.setImageBitmap(bitmap);
+            categorias.get(msg.arg2).setBitmap(bitmap);
+            //MiViewHolder.imgVwImagen.setImageBitmap(bitmap);
+              InicioActivity.vista.cargarCategorias();
         }
 
         return false;
@@ -65,7 +74,7 @@ public class MiAdapter extends RecyclerView.Adapter<MiViewHolder> implements Han
     public void recuperarImagen(int position){
         Handler.Callback callback = this;
         Handler handler = new Handler(callback);
-        MiHilo hilo = new MiHilo(handler, ControladorInicio.CARGARIMAGEN,null,categorias.get(position).getImagen());
+        MiHilo hilo = new MiHilo(handler, ControladorInicio.CARGARIMAGEN,null,categorias.get(position).getImagen(),position);
         hilo.start();
     }
 

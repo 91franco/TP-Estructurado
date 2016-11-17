@@ -30,13 +30,15 @@ public class MiHilo extends Thread {
     String respuesta;
     Uri.Builder params;
     String urlImagen;
+    int position;
 
 
-    public MiHilo(Handler handler, int i,Uri.Builder params,String urlImagen ){
+    public MiHilo(Handler handler, int i,Uri.Builder params,String urlImagen, int position ){
         this.miHandler=handler;
         this.accion=i;
         this.params =params;
         this.urlImagen = urlImagen;
+        this.position = position;
 
     }
 
@@ -51,6 +53,7 @@ public class MiHilo extends Thread {
                 String info = new String (informacion);
                 JSONObject jason = new JSONObject(info);
                 error = jason.getString("error");
+                Log.d("respuesta:",info);
                 if("false".equals(error)){
                     InicioActivity.apiKey = jason.getString("apiKey");
                     byte[] informacion1=miConexion.enviarInformacion("http://lkdml.myq-see.com/categorias",null,"GET",InicioActivity.apiKey);
@@ -73,6 +76,7 @@ public class MiHilo extends Thread {
                 error = jason.getString("error");
                 respuesta=jason.getString("message");
                 Message msg = new Message();
+                Log.d("respuesta:",info);
                 if("false".equals(error)){
                     msg.arg1 = ControladorRegistrarse.REGISTRARSE_OK;
                     msg.obj = respuesta;
@@ -108,6 +112,7 @@ public class MiHilo extends Thread {
                 Bitmap bitmap = BitmapFactory.decodeByteArray(informacion,0,informacion.length);
                 Message msg1= new Message();
                 msg1.arg1= ControladorInicio.CARGARIMAGEN;
+                msg1.arg2=position;
                 msg1.obj=informacion;
                 miHandler.sendMessage(msg1);
             }

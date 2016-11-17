@@ -36,7 +36,7 @@ public class ControladorNuevaCategoria implements View.OnClickListener,Handler.C
             if(vista.validaVacio()) {
                 Handler.Callback callback = this;
                 Handler handler = new Handler(callback);
-                MiHilo hilo = new MiHilo(handler,CREARCATEGORIA,vista.cargarParametros(),null);
+                MiHilo hilo = new MiHilo(handler,CREARCATEGORIA,vista.cargarParametros(),null,0);
                 hilo.start();
             }else {
 

@@ -93,14 +93,16 @@ public class VistaInicio {
 
     public Uri.Builder cargarParametros(){
         Uri.Builder params = new Uri.Builder();
-        if( !InicioActivity.usuario.equals("sin usuario") && !InicioActivity.clave.equals("sin clave")) {
-            params.appendQueryParameter("email", InicioActivity.usuario);
-            params.appendQueryParameter("password",InicioActivity.clave);
-        }else{
+        //if( !InicioActivity.usuario.equals("sin usuario") && !InicioActivity.clave.equals("sin clave")) {
+          //  params.appendQueryParameter("email", InicioActivity.usuario);
+           // params.appendQueryParameter("password",InicioActivity.clave);
+        //}else{
             params.appendQueryParameter("email", email.getText().toString());
             params.appendQueryParameter("password", clave.getText().toString());
-        }
+        //}
+        Log.d("parametros:",params.toString());
         return  params;
+
     }
 
     public void datosIncorrectos(String mensaje){
